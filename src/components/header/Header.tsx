@@ -1,8 +1,15 @@
 import React from 'react';
+import Contacts from './Contacts';
+import './style.css';
 
 function Header() {
+  const title = '< Pedro />';
+
   return (
-    <div>Header</div>
+    <header className="header-container">
+      <h1 className="header-title"> { title } </h1>
+      <Contacts />
+    </header>
   );
 }
 
