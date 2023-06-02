@@ -1,0 +1,29 @@
+.header-container {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+}
+
+.header-title {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.contacts-container {
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.contacts-container > a {
+  margin: 0 10px;
+  font-size: 40px;
+  text-decoration: none !important;
+  color: white;
+  display: flex;
+  align-items: center;
+}
