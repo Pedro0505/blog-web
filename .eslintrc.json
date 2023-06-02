@@ -19,7 +19,9 @@
   },
   "rules": {
     "import/extensions": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "no-console": "off",
+    "indent": ["error", 2]
   },
   "settings": {
     "react": {
