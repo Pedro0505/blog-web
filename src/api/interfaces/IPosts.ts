@@ -3,7 +3,7 @@ interface IPosts {
   title: string;
   description: string;
   content: string;
-  published: Date;
+  published: string;
   category: string;
 }
 

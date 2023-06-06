@@ -9,7 +9,7 @@ const initialValue = {
     title: '',
     description: '',
     content: '',
-    published: new Date('2011-08-01T19:58:00.000Z'),
+    published: '2011-08-01T19:58:00.000Z',
     category: '',
   }],
   fetchPosts: async () => {},
