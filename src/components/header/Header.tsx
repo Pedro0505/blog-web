@@ -1,5 +1,4 @@
 import React from 'react';
-import Contacts from './Contacts';
 import './style.css';
 
 function Header() {
@@ -8,7 +7,6 @@ function Header() {
   return (
     <header className="header-container">
       <h1 className="header-title"> { title } </h1>
-      <Contacts />
     </header>
   );
 }
