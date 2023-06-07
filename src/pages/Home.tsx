@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Header from '../components/header/Header';
 import { PostsContext } from '../context/PostsContext';
-import PostsCards from '../components/postsCards/PostsCards';
+import PostCard from '../components/postCard/PostCard';
 
 function Home() {
   const { fetchPosts, posts } = useContext(PostsContext);
@@ -15,7 +15,7 @@ function Home() {
       <Header />
       {
         posts.map((e) => (
-          <PostsCards
+          <PostCard
             key={e.id}
             category={e.category}
             description={e.description}
