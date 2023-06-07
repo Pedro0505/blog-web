@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryCard from '../categoryCard/CategoryCard';
 import Date from '../date/Date';
+import './style.css';
 
 interface PostsCardsProps {
   title: string;
@@ -11,10 +12,10 @@ interface PostsCardsProps {
 
 function PostsCards({ category, description, published, title }: PostsCardsProps) {
   return (
-    <div>
+    <div className="post-card-container">
       <Date published={ published } />
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h1 className="post-card-title">{title}</h1>
+      <p className="post-card-description">{description}</p>
       <CategoryCard category={category} />
     </div>
   );
