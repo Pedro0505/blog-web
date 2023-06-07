@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { BsCalendar2Date } from 'react-icons/bs';
+import './style.css';
 
 interface DateProps {
   published: string;
@@ -8,9 +9,9 @@ interface DateProps {
 
 function Date({ published }: DateProps) {
   return (
-    <div>
-      <BsCalendar2Date />
-      <p>{dayjs(published).format('DD/MM/YYYY')}</p>
+    <div className='date-container'>
+      <BsCalendar2Date className='calendar-icon'/>
+      <p className='date-content'>{dayjs(published).format('DD/MM/YYYY')}</p>
     </div>
   );
 }
