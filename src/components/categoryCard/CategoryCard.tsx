@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 interface CategoryCardProps {
   category: string;
@@ -6,7 +7,9 @@ interface CategoryCardProps {
 
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <div>{ category }</div>
+    <div className="category-container">
+      <p className="category-name">{ category }</p>
+    </div>
   );
 }
 
