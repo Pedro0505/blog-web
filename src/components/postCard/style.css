@@ -6,9 +6,14 @@
   border-bottom: 1px #C7C7C7 solid;
 }
 
+.home-post-link-redirect {
+  text-decoration: none;
+}
+
 .post-card-title {
   margin: 10px 0;
   font-weight: 500;
+  color: #000000;
 }
 
 .post-card-description {
