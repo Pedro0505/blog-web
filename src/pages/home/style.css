@@ -1,0 +1,9 @@
+.home-post-project-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.posts-main {
+  margin-left: 30px;
+}
