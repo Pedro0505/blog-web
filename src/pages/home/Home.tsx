@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import { PostsContext } from '../../context/PostsContext';
 import PostCard from '../../components/postCard/PostCard';
 import Projects from '../../components/projects/Projects';
+import Contacts from '../../components/contacts/Contacts';
 import './style.css';
 
 function Home() {
@@ -29,7 +30,10 @@ function Home() {
             ))
           }
         </div>
-        <Projects />
+        <section className="projects-contacts-container">
+          <Projects />
+          <Contacts />
+        </section>
       </section>
     </>
   );
