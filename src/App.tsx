@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { PostsProvider } from './context/PostsContext';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import Post from './pages/posts/Post';
 
 function App() {
