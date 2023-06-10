@@ -21,9 +21,13 @@ export const PostsProvider = ({ children }: IPostsContextProps) => {
   const [posts, setPosts] = useState(initialValue.posts);
 
   const fetchPosts = async () => {
-    const response = await getPosts();
+    try {
+      const response = await getPosts();
 
-    setPosts(response);
+      setPosts(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const context = {
