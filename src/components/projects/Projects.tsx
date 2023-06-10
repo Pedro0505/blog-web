@@ -3,8 +3,9 @@ import './style.css';
 
 function Projects() {
   return (
-    <article className="projects-container">
-    </article>
+    <aside className="projects-container">
+      <h1 className="projects-title-aside">Projetos</h1>
+    </aside>
   );
 }
 
