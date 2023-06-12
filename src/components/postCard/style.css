@@ -6,6 +6,11 @@
   border-bottom: 1px #C7C7C7 solid;
 }
 
+.post-card-container:hover .post-card-title,
+.post-card-container:hover .post-card-description {
+  text-decoration: underline;
+}
+
 .home-post-link-redirect {
   text-decoration: none;
 }
