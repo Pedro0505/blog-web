@@ -1,0 +1,12 @@
+.category-container {
+  width: fit-content;
+  padding: 0 14px;
+  background-color: #FF8E3C;
+  border-radius: 14px;
+}
+
+.category-name {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
