@@ -1,0 +1,11 @@
+.contacts-name-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-name-container a {
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  font-weight: 700;
+}

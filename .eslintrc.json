@@ -21,7 +21,8 @@
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-console": "off",
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "object-curly-newline": "off" 
   },
   "settings": {
     "react": {

@@ -1,0 +1,15 @@
+.home-post-project-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.posts-main {
+  margin-left: 30px;
+}
+
+.projects-contacts-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}

@@ -1,0 +1,14 @@
+.project-card-container {
+  display: block;
+  text-decoration: none;
+  margin: 20px 10px;
+}
+
+.project-name {
+  margin-bottom: 5px;
+  color: black;
+}
+
+.project-description {
+  color: #9B9B9B;
+}
