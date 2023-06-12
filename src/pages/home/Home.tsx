@@ -5,6 +5,7 @@ import PostCard from '../../components/postCard/PostCard';
 import Projects from '../../components/projects/Projects';
 import Contacts from '../../components/contacts/Contacts';
 import './style.css';
+import Loading from '../../components/loding/Loading';
 
 function Home() {
   const { fetchPosts, posts } = useContext(PostsContext);
@@ -19,7 +20,7 @@ function Home() {
       <section className="home-post-project-container">
         <div className="posts-main">
           {
-            posts.map((e) => (
+            posts[0].content === '' ? <Loading /> : posts.map((e) => (
               <PostCard
                 key={e.id}
                 category={e.category}
