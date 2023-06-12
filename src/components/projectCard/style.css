@@ -4,6 +4,10 @@
   margin: 20px 10px;
 }
 
+.project-card-container:hover {
+  text-decoration: underline;
+}
+
 .project-name {
   margin-bottom: 5px;
   color: black;
