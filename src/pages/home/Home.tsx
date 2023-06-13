@@ -23,6 +23,7 @@ function Home() {
             posts[0].content === '' ? <Loading /> : posts.map((e) => (
               <PostCard
                 key={e.id}
+                postId={e.id}
                 category={e.category}
                 description={e.description}
                 published={e.published}
