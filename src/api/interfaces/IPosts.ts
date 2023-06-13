@@ -1,5 +1,5 @@
 interface IPosts {
-  id: number;
+  id: string;
   title: string;
   description: string;
   content: string;
