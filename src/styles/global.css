@@ -6,3 +6,16 @@
   box-sizing: border-box;
   font-family: 'Gentium Plus', serif;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #919191;
+  border-radius: 15px;
+}
