@@ -4,11 +4,13 @@
   background: #FFFFFF;
   border: 1px solid #C7C7C7;
   border-radius: 15px;
+  margin-right: 40px;
 }
 
 .projects-title-aside {
   margin: 10px;
-  font-size: 1.7em;
+  font-weight: 500;
+  font-size: 1.8em;
 }
 
 .project-cards-box {

@@ -5,15 +5,16 @@ import Date from '../date/Date';
 import './style.css';
 
 interface PostsCardsProps {
+  postId: string;
   title: string;
   description: string;
   published: string;
   category: string;
 }
 
-function PostsCards({ category, description, published, title }: PostsCardsProps) {
+function PostsCards({ category, description, published, title, postId }: PostsCardsProps) {
   return (
-    <Link to={`post/${title}`} className="home-post-link-redirect">
+    <Link to={`post/${postId}`} className="home-post-link-redirect">
       <div className="post-card-container">
         <Date published={ published } />
         <h1 className="post-card-title">{title}</h1>
