@@ -5,7 +5,7 @@ import getPosts from '../api/getPosts';
 
 const initialValue = {
   posts: [{
-    id: 1,
+    id: 'sad23122easdsadasd',
     title: '',
     description: '',
     content: '',

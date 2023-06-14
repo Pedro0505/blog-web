@@ -10,7 +10,7 @@ function App() {
       <PostsProvider>
         <Routes>
           <Route path="/" element={ <ProjectsProvider> <Home /> </ProjectsProvider> } />
-          <Route path="/post/:title" element={ <Post />} />
+          <Route path="/post/:postId" element={ <ProjectsProvider> <Post /> </ProjectsProvider> } />
         </Routes>
       </PostsProvider>
     </main>

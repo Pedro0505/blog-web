@@ -5,7 +5,7 @@ import getProjects from '../api/getProjects';
 
 const initialValue = {
   projects: [{
-    id: 1,
+    id: '21321321wqsad',
     name: '',
     description: '',
     url: '',

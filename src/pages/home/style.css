@@ -6,10 +6,10 @@
 
 .posts-main {
   margin-left: 40px;
+  width: 48vw;
 }
 
 .projects-contacts-container {
   display: flex;
   flex-direction: column;
-  margin-right: 40px;
 }

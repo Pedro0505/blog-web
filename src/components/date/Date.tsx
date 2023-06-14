@@ -1,6 +1,6 @@
 import React from 'react';
-import dayjs from 'dayjs';
 import { BsCalendar2Date } from 'react-icons/bs';
+import serializeDateToYear from '../../helpers/serializeDateToYear';
 import './style.css';
 
 interface DateProps {
@@ -11,7 +11,7 @@ function Date({ published }: DateProps) {
   return (
     <div className='date-container'>
       <BsCalendar2Date className='calendar-icon'/>
-      <p className='date-content'>{dayjs(published).format('DD/MM/YYYY')}</p>
+      <p className='date-content'>{serializeDateToYear(published)}</p>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.post-page-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-page {
+  margin-left: 40px;
+  width: 48vw;
+}
+
+.post-page-title {
+  font-size: 2.5em;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.post-content-container {
+  margin-top: 30px;
+}
