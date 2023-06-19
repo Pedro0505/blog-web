@@ -11,18 +11,21 @@ const initialValue = {
     url: '',
   }],
   fetchProjects: async () => {},
+  projectsIsLoading: true,
 };
 
 export const ProjectsContext = createContext<IProjectsContextType>(initialValue);
 
 export const ProjectsProvider = ({ children }: IProjectsContextProps) => {
   const [projects, setProjects] = useState(initialValue.projects);
+  const [projectsIsLoading, setProjectsIsLoading] = useState(true);
 
   const fetchProjects = async () => {
     try {
       const response = await getProjects();
 
       setProjects(response);
+      setProjectsIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -31,6 +34,7 @@ export const ProjectsProvider = ({ children }: IProjectsContextProps) => {
   const context = {
     projects,
     fetchProjects,
+    projectsIsLoading,
   };
 
   return (
