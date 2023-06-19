@@ -7,6 +7,7 @@ import getPostById from '../../api/getPostById';
 import IPosts from '../../api/interfaces/IPosts';
 import PostDescription from '../../components/postDescription/PostDescription';
 import CategoryCard from '../../components/categoryCard/CategoryCard';
+import Contacts from '../../components/contacts/Contacts';
 
 const initialState = {
   post: {
@@ -45,7 +46,10 @@ function Post() {
           <CategoryCard category={ post.category } />
           <div className="post-content-container" dangerouslySetInnerHTML={{ __html: post.content }} />
         </section>
-        <Projects />
+        <section className="projects-contacts-container">
+          <Projects />
+          <Contacts />
+        </section>
       </main>
     </>
   );

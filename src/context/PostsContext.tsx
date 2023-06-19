@@ -13,18 +13,21 @@ const initialValue = {
     category: '',
   }],
   fetchPosts: async () => {},
+  postsIsLoading: true,
 };
 
 export const PostsContext = createContext<IPostsContextType>(initialValue);
 
 export const PostsProvider = ({ children }: IPostsContextProps) => {
   const [posts, setPosts] = useState(initialValue.posts);
+  const [postsIsLoading, setPostsIsLoading] = useState(true);
 
   const fetchPosts = async () => {
     try {
       const response = await getPosts();
 
       setPosts(response);
+      setPostsIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -33,6 +36,7 @@ export const PostsProvider = ({ children }: IPostsContextProps) => {
   const context = {
     posts,
     fetchPosts,
+    postsIsLoading,
   };
 
   return (

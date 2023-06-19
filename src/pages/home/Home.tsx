@@ -8,7 +8,7 @@ import './style.css';
 import Loading from '../../components/loding/Loading';
 
 function Home() {
-  const { fetchPosts, posts } = useContext(PostsContext);
+  const { fetchPosts, posts, postsIsLoading } = useContext(PostsContext);
 
   useEffect(() => {
     fetchPosts();
@@ -20,7 +20,7 @@ function Home() {
       <section className="home-post-project-container">
         <div className="posts-main">
           {
-            posts[0].content === '' ? <Loading /> : posts.map((e) => (
+            postsIsLoading ? <Loading /> : posts.map((e) => (
               <PostCard
                 key={e.id}
                 postId={e.id}

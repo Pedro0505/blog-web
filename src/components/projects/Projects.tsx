@@ -5,7 +5,7 @@ import ProjectCard from '../projectCard/ProjectCard';
 import Loading from '../loding/Loading';
 
 function Projects() {
-  const { fetchProjects, projects } = useContext(ProjectsContext);
+  const { fetchProjects, projects, projectsIsLoading } = useContext(ProjectsContext);
 
   useEffect(() => {
     fetchProjects();
@@ -16,7 +16,7 @@ function Projects() {
       <h1 className="projects-title-aside">Projetos</h1>
       <div className="project-cards-box">
         {
-          projects[0].name === '' ? <Loading /> : projects.map((e) => (
+          projectsIsLoading ? <Loading /> : projects.map((e) => (
             <ProjectCard
               key={e.id}
               description={e.description}
