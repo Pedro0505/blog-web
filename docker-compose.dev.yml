@@ -18,8 +18,13 @@ services:
       - main-network
 
   blog-web-dev:
-    image: pedro0505/blog-web
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: blog-web-dev
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./public:/usr/src/app/public
     depends_on:
       blog-api-dev:
         condition: service_healthy
