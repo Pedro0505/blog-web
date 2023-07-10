@@ -6,7 +6,6 @@ function Writer() {
   const [loged, setLoged] = useState(false);
 
   useEffect(() => {
-    console.log('oi', authorized.current);
     setLoged(authorized.current);
   }, [authorized.current]);
 
