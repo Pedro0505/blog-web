@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import './style.css';
 import userLogin from '../../api/userLogin';
 import { setCookie } from '../../helpers/handleCookies';
+import CookieKeys from '../../constants/CookieKeys';
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -21,7 +22,7 @@ function Login() {
     try {
       const { token } = await userLogin(form);
 
-      setCookie('session-secret', token, {
+      setCookie(CookieKeys.SessionKey, token, {
         expires: (dayjs().add(7, 'day')).toDate(),
       });
 
