@@ -13,14 +13,7 @@ const Editor = ({ setContent }: MyEditorProps) => (
       setOptions={{
         buttonList: [
           ['font', 'fontSize'],
-          [
-            'bold',
-            'underline',
-            'italic',
-            'strike',
-            'subscript',
-            'superscript',
-          ],
+          ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
           ['fontColor', 'hiliteColor'],
           ['align', 'list', 'lineHeight'],
           ['outdent', 'indent'],

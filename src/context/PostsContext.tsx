@@ -4,14 +4,16 @@ import IPostsContextType from './interfaces/IPostsContextType';
 import getPosts from '../api/getPosts';
 
 const initialValue = {
-  posts: [{
-    id: 'sad23122easdsadasd',
-    title: '',
-    description: '',
-    content: '',
-    published: '2011-08-01T19:58:00.000Z',
-    category: '',
-  }],
+  posts: [
+    {
+      id: 'sad23122easdsadasd',
+      title: '',
+      description: '',
+      content: '',
+      published: '2011-08-01T19:58:00.000Z',
+      category: '',
+    },
+  ],
   fetchPosts: async () => {},
   postsIsLoading: true,
 };
@@ -39,9 +41,5 @@ export const PostsProvider = ({ children }: IPostsContextProps) => {
     postsIsLoading,
   };
 
-  return (
-    <PostsContext.Provider value={ context }>
-      { children }
-    </PostsContext.Provider>
-  );
+  return <PostsContext.Provider value={context}>{children}</PostsContext.Provider>;
 };

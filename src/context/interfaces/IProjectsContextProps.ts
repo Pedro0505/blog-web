@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 interface IProjectsContextProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default IProjectsContextProps;

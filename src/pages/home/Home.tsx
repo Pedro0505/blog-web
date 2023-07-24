@@ -19,8 +19,10 @@ function Home() {
       <Header />
       <section className="home-post-project-container">
         <div className="posts-main">
-          {
-            postsIsLoading ? <Loading /> : posts.map((e) => (
+          {postsIsLoading ? (
+            <Loading />
+          ) : (
+            posts.map(e => (
               <PostCard
                 key={e.id}
                 postId={e.id}
@@ -30,7 +32,7 @@ function Home() {
                 title={e.title}
               />
             ))
-          }
+          )}
         </div>
         <section className="projects-contacts-container">
           <Projects />

@@ -13,13 +13,11 @@ function Writer() {
 
   return (
     <>
-      {
-        logged && (
-          <main className="writer-content">
-            <CreatePost />
-          </main>
-        )
-      }
+      {logged && (
+        <main className="writer-content">
+          <CreatePost />
+        </main>
+      )}
     </>
   );
 }
