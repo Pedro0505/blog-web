@@ -7,7 +7,9 @@ import IPosts from './interfaces/IPosts';
 const createPost = async (post: IPostCreate): Promise<IPosts> => {
   const token = getCookie(CookieKeys.SessionKey);
 
-  const response = await handlesAxios.post('/posts', post, { headers: { Authorization: token } });
+  const response = await handlesAxios.post('/posts', post, {
+    headers: { Authorization: token },
+  });
 
   return response.data;
 };

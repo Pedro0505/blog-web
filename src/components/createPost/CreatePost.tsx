@@ -8,7 +8,7 @@ function CreatePost() {
   const [content, setContent] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setPost((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
+    setPost(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
   };
 
   const handleSubmit = async () => {
@@ -34,7 +34,9 @@ function CreatePost() {
         <input type="text" name="category" id="category-field" onChange={handleChange} />
       </label>
       <Editor setContent={setContent} />
-      <button type="button" className="button-create-post" onClick={handleSubmit}>Criar Post</button>
+      <button type="button" className="button-create-post" onClick={handleSubmit}>
+        Criar Post
+      </button>
     </div>
   );
 }

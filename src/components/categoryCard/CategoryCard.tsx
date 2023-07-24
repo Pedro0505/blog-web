@@ -8,7 +8,7 @@ interface CategoryCardProps {
 function CategoryCard({ category }: CategoryCardProps) {
   return (
     <div className="category-container">
-      <p className="category-name">{ category }</p>
+      <p className="category-name">{category}</p>
     </div>
   );
 }

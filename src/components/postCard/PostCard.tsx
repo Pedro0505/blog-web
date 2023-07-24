@@ -16,7 +16,7 @@ function PostsCards({ category, description, published, title, postId }: PostsCa
   return (
     <Link to={`post/${postId}`} className="home-post-link-redirect">
       <div className="post-card-container">
-        <Date published={ published } />
+        <Date published={published} />
         <h1 className="post-card-title">{title}</h1>
         <p className="post-card-description">{description}</p>
         <CategoryCard category={category} />

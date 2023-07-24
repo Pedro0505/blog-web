@@ -15,16 +15,11 @@ function Projects() {
     <aside className="projects-container">
       <h1 className="projects-title-aside">Projetos</h1>
       <div className="project-cards-box">
-        {
-          projectsIsLoading ? <Loading /> : projects.map((e) => (
-            <ProjectCard
-              key={e.id}
-              description={e.description}
-              name={e.name}
-              url={e.url}
-            />
-          ))
-        }
+        {projectsIsLoading ? (
+          <Loading />
+        ) : (
+          projects.map(e => <ProjectCard key={e.id} description={e.description} name={e.name} url={e.url} />)
+        )}
       </div>
     </aside>
   );

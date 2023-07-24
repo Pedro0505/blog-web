@@ -9,9 +9,9 @@ interface DateProps {
 
 function Date({ published }: DateProps) {
   return (
-    <div className='date-container'>
-      <BsCalendar2Date className='calendar-icon'/>
-      <p className='date-content'>{serializeDateToYear(published)}</p>
+    <div className="date-container">
+      <BsCalendar2Date className="calendar-icon" />
+      <p className="date-content">{serializeDateToYear(published)}</p>
     </div>
   );
 }

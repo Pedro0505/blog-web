@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Projects from '../../components/projects/Projects';
@@ -41,9 +41,9 @@ function Post() {
       <Header />
       <main className="post-page-container">
         <section className="post-page">
-          <h1 className="post-page-title">{ post.title }</h1>
-          <PostDescription puplished={ post.published } />
-          <CategoryCard category={ post.category } />
+          <h1 className="post-page-title">{post.title}</h1>
+          <PostDescription puplished={post.published} />
+          <CategoryCard category={post.category} />
           <div className="post-content-container" dangerouslySetInnerHTML={{ __html: post.content }} />
         </section>
         <section className="projects-contacts-container">

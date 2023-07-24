@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PostsProvider } from './context/PostsContext';
 import Home from './pages/home/Home';
@@ -11,10 +12,24 @@ function App() {
     <main>
       <PostsProvider>
         <Routes>
-          <Route path="/" element={ <ProjectsProvider> <Home /> </ProjectsProvider> } />
-          <Route path="/post/:postId" element={ <ProjectsProvider> <Post /> </ProjectsProvider> } />
-          <Route path="/login" element={ <Login /> } />
-          <Route path="/writer" element={ <Writer /> } />
+          <Route
+            path="/"
+            element={
+              <ProjectsProvider>
+                <Home />
+              </ProjectsProvider>
+            }
+          />
+          <Route
+            path="/post/:postId"
+            element={
+              <ProjectsProvider>
+                <Post />
+              </ProjectsProvider>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/writer" element={<Writer />} />
         </Routes>
       </PostsProvider>
     </main>

@@ -4,12 +4,14 @@ import IProjectsContextType from './interfaces/IProjectsContextType';
 import getProjects from '../api/getProjects';
 
 const initialValue = {
-  projects: [{
-    id: '21321321wqsad',
-    name: '',
-    description: '',
-    url: '',
-  }],
+  projects: [
+    {
+      id: '21321321wqsad',
+      name: '',
+      description: '',
+      url: '',
+    },
+  ],
   fetchProjects: async () => {},
   projectsIsLoading: true,
 };
@@ -37,9 +39,5 @@ export const ProjectsProvider = ({ children }: IProjectsContextProps) => {
     projectsIsLoading,
   };
 
-  return (
-    <ProjectsContext.Provider value={ context }>
-      { children }
-    </ProjectsContext.Provider>
-  );
+  return <ProjectsContext.Provider value={context}>{children}</ProjectsContext.Provider>;
 };
