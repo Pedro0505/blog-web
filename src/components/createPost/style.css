@@ -1,0 +1,36 @@
+.create-post-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.create-post-container label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.create-post-container p {
+  margin: 0 0 5px 0;
+}
+
+.create-post-container label input {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.create-post-container > *:last-child {
+  margin: 20px 0;
+}
+
+.button-create-post {
+  padding: 10px 0;
+  border-radius: 5px;
+  border: none;
+  background-color: #FF8E3C;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
