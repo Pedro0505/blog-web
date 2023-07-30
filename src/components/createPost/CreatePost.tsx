@@ -1,7 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
 import Editor from '../editor/Editor';
-import './style.css';
 import createPost from '../../api/createPost';
+import InputLabel from '../InputLabel/InputLabel';
+import './style.css';
 
 function CreatePost() {
   const [post, setPost] = useState({ category: '', description: '', title: '' });
@@ -21,18 +22,9 @@ function CreatePost() {
 
   return (
     <div className="create-post-container">
-      <label htmlFor="title">
-        <p>Título</p>
-        <input type="text" name="title" id="title-field" onChange={handleChange} />
-      </label>
-      <label htmlFor="description">
-        <p>Descrição</p>
-        <input type="text" name="description" id="description-field" onChange={handleChange} />
-      </label>
-      <label htmlFor="category">
-        <p>Categoria</p>
-        <input type="text" name="category" id="category-field" onChange={handleChange} />
-      </label>
+      <InputLabel name="title" id="title-field" onChange={handleChange} labelText="Título" />
+      <InputLabel name="description" id="description-field" onChange={handleChange} labelText="Descrição" />
+      <InputLabel name="category" id="category-field" onChange={handleChange} labelText="Categoria" />
       <Editor setContent={setContent} />
       <button type="button" className="button-create-post" onClick={handleSubmit}>
         Criar Post
