@@ -7,6 +7,7 @@ interface IInput {
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
+  error?: string;
 }
 
 export default IInput;
