@@ -5,7 +5,7 @@ import './style.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 function Writer() {
-  const authorized = useTokenRedirect();
+  const authorized = useTokenRedirect('/login', '/writer');
   const [logged, setLogged] = useState(false);
   useDocumentTitle('Writer');
 
