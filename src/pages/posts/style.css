@@ -1,6 +1,7 @@
 .post-page-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 150px;
 }
 
 .post-page {
