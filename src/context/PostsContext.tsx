@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 import IPostsContextProps from './interfaces/IPostsContextProps';
 import IPostsContextType from './interfaces/IPostsContextType';
-import getPosts from '../api/getPosts';
+import getPosts from '../api/posts/getPosts';
 
 const initialValue = {
   posts: [

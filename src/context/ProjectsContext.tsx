@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 import IProjectsContextProps from './interfaces/IProjectsContextProps';
 import IProjectsContextType from './interfaces/IProjectsContextType';
-import getProjects from '../api/getProjects';
+import getProjects from '../api/project/getProjects';
 
 const initialValue = {
   projects: [

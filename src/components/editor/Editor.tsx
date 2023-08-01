@@ -1,32 +1,38 @@
 import React from 'react';
 import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
+import ErrorCard from '../errorCard/ErrorCard';
+import './style.css';
 
 interface MyEditorProps {
   setContent: (value: string) => void;
+  error: string;
 }
 
-const Editor = ({ setContent }: MyEditorProps) => (
-  <div>
-    <SunEditor
-      onChange={setContent}
-      setOptions={{
-        buttonList: [
-          ['font', 'fontSize'],
-          ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
-          ['fontColor', 'hiliteColor'],
-          ['align', 'list', 'lineHeight'],
-          ['outdent', 'indent'],
-          ['preview'],
-          ['link', 'image'],
-          ['removeFormat'],
-        ],
-        defaultTag: 'div',
-        minHeight: '300px',
-        showPathLabel: false,
-      }}
-    />
-  </div>
+const Editor = ({ setContent, error }: MyEditorProps) => (
+  <>
+    <div className="editor-container">
+      <SunEditor
+        onChange={setContent}
+        setOptions={{
+          buttonList: [
+            ['font', 'fontSize'],
+            ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'codeView'],
+            ['fontColor', 'hiliteColor'],
+            ['align', 'list', 'lineHeight'],
+            ['outdent', 'indent'],
+            ['preview'],
+            ['link', 'image'],
+            ['removeFormat'],
+          ],
+          defaultTag: 'div',
+          minHeight: '300px',
+          showPathLabel: false,
+        }}
+      />
+    </div>
+    <ErrorCard message={error || ''} />
+  </>
 );
 
 export default Editor;

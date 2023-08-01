@@ -1,0 +1,19 @@
+.input-icon-label {
+  position: relative;
+}
+
+.input-icon {
+  padding: 15px 0 15px 35px;
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.input-icon-label svg {
+  position: absolute;
+  font-size: 25px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #999;
+}

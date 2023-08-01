@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Projects from '../../components/projects/Projects';
 import './style.css';
-import getPostById from '../../api/getPostById';
+import getPostById from '../../api/posts/getPostById';
 import IPosts from '../../api/interfaces/IPosts';
 import PostDescription from '../../components/postDescription/PostDescription';
 import CategoryCard from '../../components/categoryCard/CategoryCard';
 import Contacts from '../../components/contacts/Contacts';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const initialState = {
   post: {
@@ -23,10 +24,13 @@ const initialState = {
 function Post() {
   const params = useParams<{ postId: string }>();
   const [post, setPost] = useState<IPosts>(initialState.post);
+  useDocumentTitle('Blog');
 
   const getPostByIdResponse = async () => {
     if (params.postId) {
       const response = await getPostById(params.postId);
+
+      document.title = response.title;
 
       setPost(response);
     }
