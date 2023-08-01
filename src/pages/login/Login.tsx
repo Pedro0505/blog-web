@@ -12,11 +12,13 @@ import handleApiErrors from '../../helpers/handleApiErrors';
 import InputIcon from '../../components/inputIcon/InputIcon';
 import ButtonIcon from '../../components/buttonIcon/ButtonIcon';
 import './style.css';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
   const [errorsMsg, setErrorsMsg] = useState<string[]>([]);
   const navigate = useNavigate();
+  useDocumentTitle('Login');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
