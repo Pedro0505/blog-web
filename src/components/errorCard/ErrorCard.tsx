@@ -7,7 +7,7 @@ interface ErrorCardProps {
 
 function ErrorCard({ message }: ErrorCardProps) {
   return (
-    <span className="error-message-container">
+    <span className="error-message-container no-select">
       <p className="error-message-text">{message}</p>
     </span>
   );

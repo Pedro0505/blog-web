@@ -9,6 +9,8 @@ function Writer() {
   const [logged, setLogged] = useState(false);
   useDocumentTitle('Writer');
 
+  console.log('Montou');
+
   useEffect(() => {
     setLogged(authorized.current);
   }, [authorized.current]);

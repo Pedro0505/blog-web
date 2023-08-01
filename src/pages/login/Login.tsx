@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import { BiUser } from 'react-icons/bi';
 import { AiFillLock, AiOutlineArrowRight } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
@@ -13,10 +13,13 @@ import InputIcon from '../../components/inputIcon/InputIcon';
 import ButtonIcon from '../../components/buttonIcon/ButtonIcon';
 import './style.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import LoginFormSchema from '../../validations/schemas/LoginForm.schema';
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
   const [errorsMsg, setErrorsMsg] = useState<string[]>([]);
+  const [errorsMsgFields, setErrorsMsgFields] = useState({ username: '', password: '' });
+  const errorRef = useRef(false);
   const navigate = useNavigate();
   useDocumentTitle('Login');
 
@@ -24,17 +27,37 @@ function Login() {
     setForm(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
   };
 
+  const handleError = async () => {
+    const usernamechema = LoginFormSchema.username.validate(form.username);
+    const passwordSchema = LoginFormSchema.password.validate(form.password);
+
+    if (usernamechema.error || passwordSchema.error) {
+      errorRef.current = true;
+    } else {
+      errorRef.current = false;
+    }
+
+    setErrorsMsgFields({
+      username: usernamechema.error ? usernamechema.error.message : '',
+      password: passwordSchema.error ? passwordSchema.error.message : '',
+    });
+  };
+
   const submitLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    handleError();
+
     try {
-      const { token } = await userLogin(form);
+      if (!errorRef.current) {
+        const { token } = await userLogin(form);
 
-      setCookie(CookieKeys.SessionKey, token, {
-        expires: dayjs().add(7, 'day').toDate(),
-      });
+        setCookie(CookieKeys.SessionKey, token, {
+          expires: dayjs().add(7, 'day').toDate(),
+        });
 
-      navigate('/writer');
+        navigate('/writer');
+      }
     } catch (error) {
       if (Axios.isAxiosError(error)) {
         console.log(error);
@@ -56,6 +79,8 @@ function Login() {
             type="text"
             onChange={handleChange}
             placeholder="Digite seu nome de usuário aqui..."
+            error={errorsMsgFields.username}
+            className="inputs-login"
           />
           <InputIcon
             icon={<AiFillLock />}
@@ -64,6 +89,8 @@ function Login() {
             id="password-field"
             onChange={handleChange}
             placeholder="Digite sua senha aqui..."
+            error={errorsMsgFields.password}
+            className="inputs-login"
           />
           <ButtonIcon name="Entrar" type="submit" icon={<AiOutlineArrowRight />} style={{ marginBottom: '10px' }} />
           {errorsMsg.map((message, index) => (
