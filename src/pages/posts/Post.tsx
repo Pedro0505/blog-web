@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Projects from '../../components/projects/Projects';
 import './style.css';
-import getPostById from '../../api/getPostById';
+import getPostById from '../../api/posts/getPostById';
 import IPosts from '../../api/interfaces/IPosts';
 import PostDescription from '../../components/postDescription/PostDescription';
 import CategoryCard from '../../components/categoryCard/CategoryCard';

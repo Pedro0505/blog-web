@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCookie } from '../helpers/handleCookies';
 import CookieKeys from '../constants/CookieKeys';
-import checkUser from '../api/checkUser';
+import checkUser from '../api/user/checkUser';
 
 const useTokenRedirect = (authPath: string, authorizedPath: string) => {
   const navigate = useNavigate();

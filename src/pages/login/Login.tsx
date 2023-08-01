@@ -4,7 +4,7 @@ import { AiFillLock, AiOutlineArrowRight } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Axios from 'axios';
-import userLogin from '../../api/userLogin';
+import userLogin from '../../api/user/userLogin';
 import { setCookie } from '../../helpers/handleCookies';
 import CookieKeys from '../../constants/CookieKeys';
 import ErrorCard from '../../components/errorCard/ErrorCard';

@@ -1,5 +1,5 @@
-import handlesAxios from './handleAxios';
-import IProjects from './interfaces/IProjects';
+import handlesAxios from '../handleAxios';
+import IProjects from '../interfaces/IProjects';
 
 const getProjects = async (): Promise<IProjects[]> => {
   const response = await handlesAxios.get('/projects');

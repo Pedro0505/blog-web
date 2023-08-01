@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import Editor from '../editor/Editor';
-import createPost from '../../api/createPost';
+import createPost from '../../api/posts/createPost';
 import InputLabel from '../InputLabel/InputLabel';
 import PostFormSchema from '../../validations/schemas/PostForm.schema';
 import './style.css';
