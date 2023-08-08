@@ -1,0 +1,25 @@
+.writer-side-bar {
+  position: relative;
+}
+
+.writer-sidebar-header {
+  text-align: center;
+  font-size: 1.6em;
+}
+
+.writer-sidebar-logout-button {
+  width: 96%;
+  bottom: 0;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.writer-side-bar p {
+  margin-left: 4px;
+}
+
+.writer-side-bar > * {
+  margin-bottom: 8px;
+}
