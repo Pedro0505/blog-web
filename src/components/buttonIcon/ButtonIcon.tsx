@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import './style.css';
 import IButton from '../../interface/components/IButton';
+import './style.css';
 
 interface ButtonIconProps extends IButton {
   icon?: ReactNode;

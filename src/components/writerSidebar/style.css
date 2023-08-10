@@ -1,3 +1,7 @@
+.writer-side-bar > * {
+  margin-bottom: 8px;
+}
+
 .writer-side-bar {
   position: relative;
 }
@@ -5,6 +9,7 @@
 .writer-sidebar-header {
   text-align: center;
   font-size: 1.6em;
+  margin-bottom: 30px;
 }
 
 .writer-sidebar-logout-button {
@@ -18,8 +23,4 @@
 
 .writer-side-bar p {
   margin-left: 4px;
-}
-
-.writer-side-bar > * {
-  margin-bottom: 8px;
 }
