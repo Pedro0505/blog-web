@@ -1,0 +1,12 @@
+.side-bar-card-conteiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.side-bar-card-conteiner:hover {
+  background-color: #E5E5E5;
+}

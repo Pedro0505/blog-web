@@ -25,11 +25,17 @@
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/restrict-template-expressions": "off"
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], "internal", ["parent", "sibling", "index"]]
+      }
+    ]
   },
-    "settings": {
-      "react": {
-        "version": "detect"
+  "settings": {
+    "react": {
+      "version": "detect"
     }
   }
 }

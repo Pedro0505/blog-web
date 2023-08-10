@@ -20,6 +20,12 @@ input {
   user-select: none;
 }
 
+.reset-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
