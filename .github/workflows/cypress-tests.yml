@@ -9,8 +9,12 @@ on:
       - main
 
 jobs:
+  eslint:
+    uses: octocat/octo-repo/.github/workflows/eslint-check.yml@main
+
   cypress-e2e-tests:
     runs-on: ubuntu-20.04
+    needs: [eslint]
     steps:
       - name: Verifica o repositório do Git
         uses: actions/checkout@v2
