@@ -22,11 +22,17 @@ services:
       context: .
       dockerfile: Dockerfile.test
     container_name: blog-web-test
+    environment:
+      - REACT_APP_PUBLIC_API=http://blog-api-test:3001
     depends_on:
       blog-api-test:
         condition: service_healthy
     ports:
-      - 3000:80
+      - 3000:3000
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./public:/usr/src/app/public
+      - ./cypress:/usr/src/app/cypress
     networks:
       - main-network
 

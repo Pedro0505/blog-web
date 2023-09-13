@@ -30,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:e2e:docker": "bash scripts/run-e2e-test-cypress-docker.sh"
   },
   "eslintConfig": {
     "extends": [

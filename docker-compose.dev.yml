@@ -16,15 +16,20 @@ services:
       - 27017:27017
     networks:
       - main-network
+    volumes:
+      - mongodb_data:/data/db
 
   blog-web-dev:
     build:
       context: .
       dockerfile: Dockerfile.dev
     container_name: blog-web-dev
+    environment:
+      - REACT_APP_PUBLIC_API=http://localhost:3001
     volumes:
       - ./src:/usr/src/app/src
       - ./public:/usr/src/app/public
+      - ./cypress:/usr/src/app/cypress
     depends_on:
       blog-api-dev:
         condition: service_healthy
@@ -51,6 +56,10 @@ services:
       - PORT_API=3001
     networks:
       - main-network
+
+volumes:
+  mongodb_data:
+    driver: local
 
 networks:
   main-network:
