@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  blog-mongodb-dev:
+  blog-mongodb-test:
     image: mongo:5.0.7
-    container_name: blog-mongodb-dev
+    container_name: blog-mongodb-test
     restart: always
     healthcheck:
       test: echo 'db.runCommand({serverStatus:1}).ok' | mongo --quiet | grep 1
@@ -16,33 +16,31 @@ services:
       - 27017:27017
     networks:
       - main-network
-    volumes:
-      - mongodb_data:/data/db
 
-  blog-web-dev:
+  blog-web-test:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: blog-web-dev
+      dockerfile: Dockerfile.test
+    container_name: blog-web-test
     environment:
-      - REACT_APP_PUBLIC_API=http://localhost:3001
+      - REACT_APP_PUBLIC_API=http://blog-api-test:3001
+    depends_on:
+      blog-api-test:
+        condition: service_healthy
+    ports:
+      - 3000:3000
     volumes:
       - ./src:/usr/src/app/src
       - ./public:/usr/src/app/public
       - ./cypress:/usr/src/app/cypress
-    depends_on:
-      blog-api-dev:
-        condition: service_healthy
-    ports:
-      - 3000:3000
     networks:
       - main-network
 
-  blog-api-dev:
+  blog-api-test:
     image: pedro0505/blog-api
-    container_name: blog-api-dev
+    container_name: blog-api-test
     depends_on:
-      blog-mongodb-dev:
+      blog-mongodb-test:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3001"]
@@ -52,14 +50,10 @@ services:
     ports:
       - 3001:3001
     environment:
-      - DATABASE_URL=mongodb://blog-mongodb-dev:27017/blog
+      - DATABASE_URL=mongodb://blog-mongodb-test:27017/blog
       - PORT_API=3001
     networks:
       - main-network
-
-volumes:
-  mongodb_data:
-    driver: local
 
 networks:
   main-network:
