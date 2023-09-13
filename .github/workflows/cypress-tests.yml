@@ -10,7 +10,7 @@ on:
 
 jobs:
   eslint:
-    uses: Pedro0505/blog-web/.github/workflows/eslint-check.yml@cypress-tests
+    uses: Pedro0505/blog-web/.github/workflows/eslint-check.yml@main
 
   cypress-e2e-tests:
     runs-on: ubuntu-20.04
