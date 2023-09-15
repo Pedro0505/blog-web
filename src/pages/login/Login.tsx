@@ -14,6 +14,7 @@ import ButtonIcon from '../../components/buttonIcon/ButtonIcon';
 import './style.css';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import LoginFormSchema from '../../validations/schemas/LoginForm.schema';
+import WebRoutes from '../../constants/WebRoutes';
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -52,11 +53,11 @@ function Login() {
       if (!errorRef.current) {
         const { token } = await userLogin(form);
 
-        setCookie(CookieKeys.SessionKey, token, {
+        setCookie(CookieKeys.SESSION_SECRET, token, {
           expires: dayjs().add(7, 'day').toDate(),
         });
 
-        navigate('/writer');
+        navigate(WebRoutes.WRITER_POSTS);
       }
     } catch (error) {
       if (Axios.isAxiosError(error)) {
