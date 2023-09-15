@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useTokenRedirect from '../../hooks/useTokenRedirect';
-import CreatePost from '../../components/createPost/CreatePost';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import WriterSidebar from '../../components/writerSidebar/WriterSidebar';
 import './style.css';
+import WebRoutes from '../../constants/WebRoutes';
 
-function Writer() {
-  const authorized = useTokenRedirect('/login', '/writer');
+function Writer({ children }: { children: React.ReactNode }) {
+  const authorized = useTokenRedirect(WebRoutes.LOGIN, WebRoutes.WRITER_POSTS);
   const [logged, setLogged] = useState(false);
   useDocumentTitle('Writer');
 
@@ -19,7 +19,7 @@ function Writer() {
       {logged && (
         <main className="writer-content">
           <WriterSidebar />
-          <CreatePost />
+          {children}
         </main>
       )}
     </>

@@ -1,11 +1,12 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
-import Editor from '../editor/Editor';
-import createPost from '../../api/posts/createPost';
-import InputLabel from '../InputLabel/InputLabel';
-import PostFormSchema from '../../validations/schemas/PostForm.schema';
+import PostFormSchema from '../../../validations/schemas/PostForm.schema';
+import createPost from '../../../api/posts/createPost';
+import InputLabel from '../../../components/InputLabel/InputLabel';
+import Editor from '../../../components/editor/Editor';
 import './style.css';
+import ButtonIcon from '../../../components/buttonIcon/ButtonIcon';
 
-function CreatePost() {
+function PostCreate() {
   const [post, setPost] = useState({ category: '', description: '', title: '' });
   const [errors, setErrors] = useState({ category: '', description: '', title: '', content: '' });
   const [content, setContent] = useState('');
@@ -65,11 +66,9 @@ function CreatePost() {
         error={errors.category}
       />
       <Editor setContent={setContent} error={errors.content} />
-      <button type="button" className="button-create-post" onClick={handleSubmit}>
-        Criar Post
-      </button>
+      <ButtonIcon style={{ padding: '10px 0' }} name="Criar Post" onClick={handleSubmit} type="button" />
     </div>
   );
 }
 
-export default CreatePost;
+export default PostCreate;
