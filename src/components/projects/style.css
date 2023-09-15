@@ -16,11 +16,15 @@
   width: 375px;
   height: 565px;
   overflow-y: scroll;
-}
-
-.project-cards-box {
   scrollbar-width: auto;
   scrollbar-color: #919191 #ffffff;
+  position: relative;
+}
+
+.project-cards-box .custom-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .project-cards-box::-webkit-scrollbar {

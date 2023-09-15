@@ -8,6 +8,13 @@
 .posts-main {
   margin-left: 40px;
   width: 48vw;
+  position: relative;
+}
+
+.posts-main .custom-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .projects-contacts-container {
