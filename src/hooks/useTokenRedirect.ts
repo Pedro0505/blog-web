@@ -10,7 +10,7 @@ const useTokenRedirect = (authPath: string, authorizedPath: string) => {
 
   useEffect(() => {
     (async () => {
-      const token = getCookie(CookieKeys.SessionKey);
+      const token = getCookie(CookieKeys.SESSION_SECRET);
       if (token === null) {
         navigate(authPath);
         return;

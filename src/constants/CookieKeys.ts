@@ -1,5 +1,5 @@
 enum CookieKeys {
-  SessionKey = 'session-secret',
+  SESSION_SECRET = 'session-secret',
 }
 
 export default CookieKeys;
