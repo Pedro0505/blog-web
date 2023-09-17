@@ -21,15 +21,6 @@
   border-radius: 10px;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-form {
-  width: 80%;
-}
-
-.inputs-login {
+.login-container input {
   margin: 10px 0;
 }
