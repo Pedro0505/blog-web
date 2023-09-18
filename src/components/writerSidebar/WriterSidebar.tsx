@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlinePoweroff, AiOutlineFundProjectionScreen, AiOutlineDashboard } from 'react-icons/ai';
+import { AiOutlinePoweroff, AiOutlineFundProjectionScreen, AiOutlineDashboard, AiFillHome } from 'react-icons/ai';
 import { BsPencilFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar';
@@ -21,25 +21,33 @@ function WriterSidebar() {
 
   return (
     <Sidebar className="writer-side-bar">
-      <header className="writer-sidebar-header no-select">{'<Pedro />'}</header>
-      <ButtonRedirect path={WebRoutes.WRITER_POSTS}>
-        <SidebarCard>
-          <BsPencilFill />
-          <p>Posts</p>
-        </SidebarCard>
-      </ButtonRedirect>
-      <ButtonRedirect path={WebRoutes.WRITER_PROJECTS}>
-        <SidebarCard>
-          <AiOutlineFundProjectionScreen />
-          <p>Projects</p>
-        </SidebarCard>
-      </ButtonRedirect>
-      <ButtonRedirect path={WebRoutes.WRITER_DASHBOARD}>
-        <SidebarCard>
-          <AiOutlineDashboard />
-          <p>Dashboard</p>
-        </SidebarCard>
-      </ButtonRedirect>
+      <div className="writer-grid">
+        <header className="writer-sidebar-header no-select">{'<Pedro />'}</header>
+        <ButtonRedirect path={WebRoutes.HOME}>
+          <SidebarCard>
+            <AiFillHome />
+            <p>Home</p>
+          </SidebarCard>
+        </ButtonRedirect>
+        <ButtonRedirect path={WebRoutes.WRITER_POSTS}>
+          <SidebarCard>
+            <BsPencilFill />
+            <p>Posts</p>
+          </SidebarCard>
+        </ButtonRedirect>
+        <ButtonRedirect path={WebRoutes.WRITER_PROJECTS}>
+          <SidebarCard>
+            <AiOutlineFundProjectionScreen />
+            <p>Projects</p>
+          </SidebarCard>
+        </ButtonRedirect>
+        <ButtonRedirect path={WebRoutes.WRITER_DASHBOARD}>
+          <SidebarCard>
+            <AiOutlineDashboard />
+            <p>Dashboard</p>
+          </SidebarCard>
+        </ButtonRedirect>
+      </div>
       <button className="writer-sidebar-logout-button" onClick={handleLogot}>
         <SidebarCard>
           <AiOutlinePoweroff />

@@ -1,9 +1,8 @@
 .side-bar-conteiner {
-  height: 100vh;
+  min-height: 100dvh;
+  height: 100%;
   width: 225px;
   border-right: 1px solid #999;
-  margin: 0 70px 0 0;
-  display: flex;
-  flex-direction: column;
   padding: 20px 0 0 0;
+  display: grid;
 }
