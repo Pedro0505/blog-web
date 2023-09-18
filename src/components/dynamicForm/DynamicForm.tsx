@@ -1,11 +1,13 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import joi from 'joi';
+import Axios from 'axios';
 import InputLabel from '../InputLabel/InputLabel';
 import ButtonIcon from '../buttonIcon/ButtonIcon';
 import IInputFields from './interfaces/IInputFields';
-import './style.css';
 import IButtonForm from './interfaces/IButtonForm';
 import InputIcon from '../inputIcon/InputIcon';
+import handleApiErrors from '../../helpers/handleApiErrors';
+import './style.css';
 
 interface DynamicFormProps {
   fields: IInputFields[];
@@ -13,6 +15,7 @@ interface DynamicFormProps {
   onFieldChange: (name: string, value: string) => void;
   button?: IButtonForm;
   children?: React.ReactNode;
+  errorMsgRef?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 function DynamicForm({
@@ -21,6 +24,7 @@ function DynamicForm({
   onFieldChange,
   button = { name: 'Submit', style: {} },
   children,
+  errorMsgRef = useState([])[1],
 }: DynamicFormProps) {
   const initialValues: Record<string, string> = {};
   const initialErrors: Record<string, string> = {};
@@ -66,8 +70,14 @@ function DynamicForm({
       if (!errorRef.current) {
         await onSubmit();
       }
+
+      errorMsgRef([]);
     } catch (error) {
       console.log(error);
+
+      if (Axios.isAxiosError(error)) {
+        errorMsgRef(handleApiErrors(error));
+      }
     }
   };
 
