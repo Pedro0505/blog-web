@@ -5,6 +5,7 @@ import Editor from '../../../components/editor/Editor';
 import './style.css';
 import DynamicForm from '../../../components/dynamicForm/DynamicForm';
 import IInputFields from '../../../components/dynamicForm/interfaces/IInputFields';
+import useForm from '../../../hooks/useForm';
 
 const fields: IInputFields[] = [
   { name: 'title', labelText: 'Título', validationSchema: schemas.title },
@@ -13,17 +14,10 @@ const fields: IInputFields[] = [
 ];
 
 function PostCreate() {
-  const [formData, setFormData] = useState({ category: '', description: '', title: '', content: '' });
+  const { handleChange, values } = useForm({ category: '', description: '', title: '', content: '' });
   const [content, setContent] = useState('');
   const [contentError, setContentError] = useState('');
   const errorRef = useRef(false);
-
-  const handleChange = (name: string, value: string) => {
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
   const handleError = () => {
     errorRef.current = false;
@@ -44,7 +38,7 @@ function PostCreate() {
     handleError();
 
     if (!errorRef.current) {
-      await createPost({ ...formData, content });
+      await createPost({ ...values, content });
     }
   };
 
