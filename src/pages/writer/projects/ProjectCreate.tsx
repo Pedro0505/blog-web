@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DynamicForm from '../../../components/dynamicForm/DynamicForm';
-import './style.css';
 import IInputFields from '../../../components/dynamicForm/interfaces/IInputFields';
 import * as schemas from '../../../validations/schemas/ProjectForm.schema';
+import './style.css';
+import createProject from '../../../api/project/createProject';
+import useForm from '../../../hooks/useForm';
 
 const fields: IInputFields[] = [
   { name: 'name', labelText: 'Nome do Projeto', validationSchema: schemas.name },
@@ -11,23 +13,16 @@ const fields: IInputFields[] = [
 ];
 
 function ProjectCreate() {
-  const [formData, setFormData] = useState({ name: '', description: '', url: '' });
-
-  const handleFieldChange = (name: string, value: string) => {
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const { handleChange, values } = useForm({ name: '', description: '', url: '' });
 
   const handleSubmit = async () => {
-    console.log('Form Data:', formData);
+    await createProject(values);
   };
 
   return (
     <DynamicForm
       fields={fields}
-      onFieldChange={handleFieldChange}
+      onFieldChange={handleChange}
       onSubmit={handleSubmit}
       button={{ name: 'Criar Post', style: { padding: '10px 0' } }}
     />
