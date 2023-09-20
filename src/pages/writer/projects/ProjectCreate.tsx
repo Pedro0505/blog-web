@@ -13,7 +13,7 @@ const fields: IInputFields[] = [
 ];
 
 function ProjectCreate() {
-  const { handleChange, values } = useForm({ name: '', description: '', url: '' });
+  const { handleChange, values, resetForm } = useForm({ name: '', description: '', url: '' });
 
   const handleSubmit = async () => {
     await createProject(values);
@@ -24,6 +24,8 @@ function ProjectCreate() {
       fields={fields}
       onFieldChange={handleChange}
       onSubmit={handleSubmit}
+      values={values}
+      cleanForm={resetForm}
       button={{ name: 'Criar Post', style: { padding: '10px 0' } }}
     />
   );

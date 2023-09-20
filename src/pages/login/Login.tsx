@@ -57,6 +57,7 @@ function Login() {
           onSubmit={submitLogin}
           onFieldChange={handleChange}
           errorMsgRef={setErrorsMsg}
+          values={values}
         />
         {errorsMsg.map((message, index) => (
           <ErrorCard message={message} key={`${index}-${message}`} />
