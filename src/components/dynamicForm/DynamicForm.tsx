@@ -9,23 +9,27 @@ import InputIcon from '../inputIcon/InputIcon';
 import handleApiErrors from '../../helpers/handleApiErrors';
 import './style.css';
 
-interface DynamicFormProps {
+interface DynamicFormProps<T> {
   fields: IInputFields[];
   onSubmit: () => Promise<void>;
+  cleanForm?: () => void;
   onFieldChange: (name: string, value: string) => void;
   button?: IButtonForm;
   children?: React.ReactNode;
   errorMsgRef?: React.Dispatch<React.SetStateAction<any>>;
+  values?: T | any;
 }
 
-function DynamicForm({
+function DynamicForm<T>({
   fields,
   onSubmit,
   onFieldChange,
-  button = { name: 'Submit', style: {} },
   children,
+  cleanForm = () => {},
+  button = { name: 'Submit', style: {} },
   errorMsgRef = useState([])[1],
-}: DynamicFormProps) {
+  values = {},
+}: DynamicFormProps<T>) {
   const initialValues: Record<string, string> = {};
   const initialErrors: Record<string, string> = {};
   const validationSchemas: Record<string, joi.Schema> = {};
@@ -69,6 +73,8 @@ function DynamicForm({
 
       if (!errorRef.current) {
         await onSubmit();
+
+        cleanForm();
       }
 
       errorMsgRef([]);
@@ -94,6 +100,7 @@ function DynamicForm({
             error={formErrors[field.name]}
             placeholder={field.placeholder}
             type={field.type}
+            value={values[field.name]}
           />
         ) : (
           <InputIcon
@@ -106,6 +113,7 @@ function DynamicForm({
             icon={field.inputIcon}
             placeholder={field.placeholder}
             type={field.type}
+            value={values[field.name]}
           />
         ),
       )}
