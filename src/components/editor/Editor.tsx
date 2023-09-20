@@ -14,6 +14,7 @@ const Editor = ({ setContent, error }: MyEditorProps) => (
     <div className="editor-container">
       <SunEditor
         onChange={setContent}
+        placeholder="Escreva o conteúdo do seu post aqui"
         setOptions={{
           buttonList: [
             ['font', 'fontSize'],
