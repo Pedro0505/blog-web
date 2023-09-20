@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-const useForm = (initialForm: any) => {
-  const [values, setValues] = useState<any>();
+const useForm = <T>(initialForm: T) => {
+  const [values, setValues] = useState<T>(initialForm);
 
   const handleChange = (name: string, value: string) => {
     setValues((prevData: any) => ({
