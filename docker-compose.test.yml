@@ -37,7 +37,7 @@ services:
       - main-network
 
   blog-api-test:
-    image: pedro0505/blog-api
+    image: pedro0505/blog-api:1.0.0
     container_name: blog-api-test
     depends_on:
       blog-mongodb-test:
