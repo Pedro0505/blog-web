@@ -21,6 +21,7 @@ function ProjectCreate() {
 
   return (
     <DynamicForm
+      className="project-create-form"
       fields={fields}
       onFieldChange={handleChange}
       onSubmit={handleSubmit}

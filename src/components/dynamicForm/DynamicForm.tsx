@@ -18,6 +18,7 @@ interface DynamicFormProps<T> {
   children?: React.ReactNode;
   errorMsgRef?: React.Dispatch<React.SetStateAction<any>>;
   values?: T | any;
+  className?: string;
 }
 
 function DynamicForm<T>({
@@ -29,6 +30,7 @@ function DynamicForm<T>({
   button = { name: 'Submit', style: {} },
   errorMsgRef = useState([])[1],
   values = {},
+  className,
 }: DynamicFormProps<T>) {
   const initialValues: Record<string, string> = {};
   const initialErrors: Record<string, string> = {};
@@ -88,7 +90,7 @@ function DynamicForm<T>({
   };
 
   return (
-    <form name="dynamic-form" className="dynamic-form-container">
+    <form name="dynamic-form" className={className ? `${className} dynamic-form-container` : 'dynamic-form-container'}>
       {fields.map(field =>
         !field.inputIcon ? (
           <InputLabel

@@ -44,6 +44,7 @@ function PostCreate() {
 
   return (
     <DynamicForm
+      className="post-create-form"
       fields={fields}
       onFieldChange={handleChange}
       onSubmit={handleSubmit}
