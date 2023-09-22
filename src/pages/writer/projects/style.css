@@ -1,6 +1,3 @@
-.project-create {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  
+.project-create-form {
+  margin-left: calc(var(--side-bar-width) + 50px);
 }
