@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCookie } from '../helpers/handleCookies';
 import CookieKeys from '../constants/CookieKeys';
 import checkUser from '../api/user/checkUser';
 
-const useTokenRedirect = (authPath: string, authorizedPath: string) => {
+const useTokenRedirect = (authPath: string) => {
   const navigate = useNavigate();
-  const authorized = useRef(false);
+  const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -18,10 +18,8 @@ const useTokenRedirect = (authPath: string, authorizedPath: string) => {
 
       try {
         const verify = await checkUser(token);
-        authorized.current = verify.authorized;
-        if (verify.authorized) {
-          navigate(authorizedPath);
-        } else {
+        setAuthorized(verify.authorized);
+        if (!verify.authorized) {
           navigate(authPath);
         }
       } catch (error) {
