@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.paginable-items-container {
+  position: relative;
+}
+
+.paginable-items-container .custom-loader {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+}
+
+.pagination button {
+  border: none;
+  background-color: transparent;
+  margin: 0 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #E5E5E5;
+}
