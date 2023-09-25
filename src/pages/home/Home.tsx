@@ -11,14 +11,12 @@ import Loading from '../../components/loding/Loading';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 function Home() {
-  const observerRef = useRef<HTMLDivElement | null>(null);
   const [posts, setPosts] = useState<IPosts[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const page = useRef(1);
   const lastPage = useRef(1);
   useDocumentTitle('Blog');
-  useIntersectionObserver({
-    ref: observerRef,
+  const observer = useIntersectionObserver({
     render: async () => {
       if (!isLoading && page.current <= lastPage.current) {
         setIsLoading(true);
@@ -55,7 +53,7 @@ function Home() {
               title={e.title}
             />
           ))}
-          <div ref={observerRef} className="observer" />
+          {observer}
           {isLoading && <Loading />}
         </div>
         <section className="projects-contacts-container">
