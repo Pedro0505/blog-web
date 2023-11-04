@@ -1,9 +1,5 @@
-.writer-side-bar > * {
+.writer-side-bar .writer-grid > *:not(:first-child) {
   margin-bottom: 8px;
-}
-
-.writer-side-bar {
-  position: relative;
 }
 
 .writer-sidebar-header {
@@ -12,15 +8,29 @@
   margin-bottom: 30px;
 }
 
+.writer-grid {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 0 15px;
+}
+
 .writer-sidebar-logout-button {
-  width: 96%;
-  bottom: 0;
-  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
+  align-self: flex-end;
+  padding: 0 5px 0 5px;
+  margin-bottom: 5px;
+}
+
+.writer-sidebar-logout-button .side-bar-card-conteiner{
+  justify-content: center;
 }
 
 .writer-side-bar p {
   margin-left: 4px;
+}
+
+.writer-side-bar {
+  position: fixed;
 }

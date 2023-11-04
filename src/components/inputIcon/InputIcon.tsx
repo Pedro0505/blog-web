@@ -7,12 +7,20 @@ interface InputIconProps extends IInput {
   icon?: ReactNode;
 }
 
-function InputIcon({ id, name, onChange, placeholder, icon, type = 'text', error, className }: InputIconProps) {
+function InputIcon({ id, name, onChange, placeholder, icon, type = 'text', error, className, value }: InputIconProps) {
   return (
     <>
       <label htmlFor={id} className={`input-icon-label ${className}`}>
         {icon}
-        <input className="input-icon" type={type} id={id} name={name} onChange={onChange} placeholder={placeholder} />
+        <input
+          className="input-icon"
+          type={type}
+          id={id}
+          name={name}
+          onChange={onChange}
+          placeholder={placeholder}
+          value={value}
+        />
       </label>
       <ErrorCard message={error || ''} />
     </>

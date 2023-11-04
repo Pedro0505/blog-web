@@ -1,73 +1,56 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
-import PostFormSchema from '../../../validations/schemas/PostForm.schema';
+import React, { useRef, useState } from 'react';
+import schemas from '../../../validations/schemas/PostForm.schema';
 import createPost from '../../../api/posts/createPost';
-import InputLabel from '../../../components/InputLabel/InputLabel';
 import Editor from '../../../components/editor/Editor';
 import './style.css';
-import ButtonIcon from '../../../components/buttonIcon/ButtonIcon';
+import DynamicForm from '../../../components/dynamicForm/DynamicForm';
+import IInputFields from '../../../components/dynamicForm/interfaces/IInputFields';
+import useForm from '../../../hooks/useForm';
+
+const fields: IInputFields[] = [
+  { name: 'title', labelText: 'Título', validationSchema: schemas.title },
+  { name: 'description', labelText: 'Categoria', validationSchema: schemas.category },
+  { name: 'category', labelText: 'Descrição', validationSchema: schemas.category },
+];
 
 function PostCreate() {
-  const [post, setPost] = useState({ category: '', description: '', title: '' });
-  const [errors, setErrors] = useState({ category: '', description: '', title: '', content: '' });
+  const { handleChange, values } = useForm({ category: '', description: '', title: '', content: '' });
   const [content, setContent] = useState('');
+  const [contentError, setContentError] = useState('');
   const errorRef = useRef(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setPost(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
-  };
+  const handleError = () => {
+    errorRef.current = false;
+    let fieldErrors = '';
 
-  const handleError = async () => {
-    const categorySchema = PostFormSchema.category.validate(post.category);
-    const contentSchema = PostFormSchema.content.validate(content);
-    const descriptionSchema = PostFormSchema.description.validate(post.description);
-    const titleSchema = PostFormSchema.title.validate(post.title);
-
-    if (categorySchema.error || contentSchema.error || descriptionSchema.error || titleSchema.error) {
+    const fieldSchema = schemas.content.validate(content, { abortEarly: false });
+    if (fieldSchema.error) {
       errorRef.current = true;
+      fieldErrors = fieldSchema.error.message;
     } else {
-      errorRef.current = false;
+      fieldErrors = '';
     }
 
-    setErrors({
-      category: categorySchema.error ? categorySchema.error.message : '',
-      description: descriptionSchema.error ? descriptionSchema.error.message : '',
-      title: titleSchema.error ? titleSchema.error.message : '',
-      content: contentSchema.error ? contentSchema.error.message : '',
-    });
+    setContentError(fieldErrors);
   };
 
   const handleSubmit = async () => {
-    try {
-      handleError();
+    handleError();
 
-      if (!errorRef.current) {
-        await createPost({ ...post, content });
-      }
-    } catch (error) {
-      console.log(error);
+    if (!errorRef.current) {
+      await createPost({ ...values, content });
     }
   };
 
   return (
-    <div className="create-post-container">
-      <InputLabel name="title" id="title-field" onChange={handleChange} labelText="Título" error={errors.title} />
-      <InputLabel
-        name="description"
-        id="description-field"
-        onChange={handleChange}
-        labelText="Descrição"
-        error={errors.description}
-      />
-      <InputLabel
-        name="category"
-        id="category-field"
-        onChange={handleChange}
-        labelText="Categoria"
-        error={errors.category}
-      />
-      <Editor setContent={setContent} error={errors.content} />
-      <ButtonIcon style={{ padding: '10px 0' }} name="Criar Post" onClick={handleSubmit} type="button" />
-    </div>
+    <DynamicForm
+      className="post-create-form"
+      fields={fields}
+      onFieldChange={handleChange}
+      onSubmit={handleSubmit}
+      button={{ name: 'Criar Post', style: { padding: '10px 0' } }}>
+      <Editor setContent={setContent} error={contentError} />
+    </DynamicForm>
   );
 }
 

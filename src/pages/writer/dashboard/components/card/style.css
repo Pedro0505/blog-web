@@ -1,0 +1,43 @@
+.dashboard-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #fff;
+  justify-content: space-between;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center
+}
+
+.dashboard-card p {
+  height: fit-content;
+}
+
+.dashboard-card > *:nth-child(1) {
+  justify-self: flex-start;
+}
+
+.dashboard-card > *:nth-child(2) {
+  justify-self: center;
+}
+
+.dashboard-card > *:nth-child(3) {
+  justify-self: flex-end;
+}
+
+.card-button-container {
+  display: flex;
+}
+
+.card-button-container .card-view-icon,
+.card-button-container .card-delete-icon {
+  padding: 8px 10px;
+  margin: 0 5px;
+}
+
+.card-delete-icon {
+  background-color: red;
+  color: white;
+}
