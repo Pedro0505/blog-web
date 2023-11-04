@@ -1,15 +1,15 @@
 import React from 'react';
-import Button from './button/Button';
 import './style.css';
+import Button from '../button/Button';
 
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
+  pageRange: number;
   onPageChange: (newPage: number) => void;
 }
 
-function Pagination({ totalPages, currentPage, onPageChange }: PaginationProps) {
-  const pageRange = 2;
+function Pagination({ totalPages, currentPage, onPageChange, pageRange }: PaginationProps) {
   const pagesToShow: number[] = [];
 
   for (let i = currentPage - pageRange; i <= currentPage + pageRange; i++) {
@@ -26,31 +26,31 @@ function Pagination({ totalPages, currentPage, onPageChange }: PaginationProps) 
 
   return (
     <div className="pagination">
-      <button
+      <Button
         disabled={currentPage === 1}
         onClick={() => {
           handlePageChange(1);
         }}>
         Primeira
-      </button>
+      </Button>
       {pagesToShow.map(page => (
         <Button
-          currentPage={currentPage}
           key={page}
-          onPageChange={() => {
-            handlePageChange(page);
-          }}
-          page={page}
-          value={page}
-        />
+          disabled={currentPage === page}
+          className={'button-pagination' + (page === currentPage ? ' active' : '')}
+          onClick={() => {
+            onPageChange(page);
+          }}>
+          {page}
+        </Button>
       ))}
-      <button
+      <Button
         disabled={currentPage === totalPages}
         onClick={() => {
           handlePageChange(totalPages);
         }}>
         Última
-      </button>
+      </Button>
     </div>
   );
 }

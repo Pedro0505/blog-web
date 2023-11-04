@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .paginable-items-container {
@@ -18,9 +19,13 @@
   background-color: transparent;
   margin: 0 15px;
   padding: 10px 20px;
-  cursor: pointer;
 }
 
 .pagination button:hover {
   background-color: #E5E5E5;
+}
+
+.active {
+  background-color: #FF8E3C !important;
+  color: white;
 }
