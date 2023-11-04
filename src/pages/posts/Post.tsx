@@ -28,11 +28,15 @@ function Post() {
 
   const getPostByIdResponse = async () => {
     if (params.postId) {
-      const response = await getPostById(params.postId);
+      try {
+        const response = await getPostById(params.postId);
 
-      document.title = response.title;
+        document.title = response.title;
 
-      setPost(response);
+        setPost(response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
