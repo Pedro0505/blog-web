@@ -1,3 +1,26 @@
 .dashboard-container {
+  width: 80%;
+  height: 100%;
   margin-left: calc(var(--side-bar-width) + 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-btn-containers {
+  display: flex;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.dashboard-btn-containers button {
+  width: 50%;
+  background-color: transparent;
+  padding: 20px 0;
+  font-size: 1.1em;
+  color: #6d6d6d;
+}
+
+.dashboard-btn-containers .rendering-component {
+  border-bottom: 3px solid black !important;
+  color: black;
 }
